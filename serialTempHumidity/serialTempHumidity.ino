@@ -6,6 +6,12 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
+static String getTempAndHumidity = "send";
+static String initialize = "init";
+
+static String command2 = "command2";
+static String command3 = "command3";
+
 String command;
 
 void setup() {
@@ -29,14 +35,14 @@ void loop() {
     command = Serial.readStringUntil('\n');
 
 
-    if (command.equals("init")) {
+    if (command.equals(initialize)) {
       h = measureHumidity();
       t = measureTemperature();
       Serial.println("Command init");
     }//initialize();
 
 
-    else if (command.equals("send")) {
+    else if (command.equals(getTempAndHumidity)) {
       h = measureHumidity();
       t = measureTemperature();
       Serial.println("sendMessage command");
@@ -49,12 +55,12 @@ void loop() {
     }//send_message();
 
    //RANDOM COMMAND IF WE NEED TO IMPLEMENT MORE ALSE 
-    else if (command.equals("data")) {
-      Serial.println("get data command");
+    else if (command.equals(command2)) {
+      Serial.println("Command 2.");
       //get_data();
     }
-    else if (command.equals("reboot")) {
-      Serial.println("Reboot command");
+    else if (command.equals(command3)) {
+      Serial.println("Command 3.");
       //reboot();
     }
 
