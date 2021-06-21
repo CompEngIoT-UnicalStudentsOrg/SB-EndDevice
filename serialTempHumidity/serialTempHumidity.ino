@@ -48,9 +48,9 @@ void loop() {
       Serial.println("sendMessage command");
       Serial.print(F("Humidity: "));
       Serial.print(h);
-      Serial.print(F("%  Temperature: "));
+      Serial.print(F("%,  Temperature: "));
       Serial.print(t);
-      Serial.println(F("°C"));
+      Serial.println(F("°C,"));
       
     }//send_message();
 
