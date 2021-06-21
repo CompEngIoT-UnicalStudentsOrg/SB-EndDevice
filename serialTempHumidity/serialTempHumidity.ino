@@ -16,7 +16,7 @@ String command;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println(F("DHTxx test!"));
+  //Serial.println(F("DHTxx test!"));
 
   dht.begin();
 }
@@ -38,19 +38,18 @@ void loop() {
     if (command.equals(initialize)) {
       h = measureHumidity();
       t = measureTemperature();
-      Serial.println("Command init");
+      //Serial.println("Command init");
     }//initialize();
 
 
     else if (command.equals(getTempAndHumidity)) {
       h = measureHumidity();
       t = measureTemperature();
-      Serial.println("sendMessage command");
-      Serial.print(F("Humidity: "));
-      Serial.print(h);
-      Serial.print(F("%,  Temperature: "));
-      Serial.print(t);
-      Serial.println(F("°C,"));
+      //Serial.println("sendMessage command");
+      
+      Serial.println("{\"temperature\": "+ String(t) +"}");
+      
+      Serial.println("{\"humidity\": "+ String(h) +"}");
       
     }//send_message();
 
